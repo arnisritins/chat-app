@@ -78,10 +78,7 @@ namespace ChatApp.Controllers
 
             if (!result.Succeeded)
             {
-                var email = info.Principal.FindFirstValue(ClaimTypes.Email);
-                var user = new User { UserName = email, Email = email };
-
-                // Create new user account
+                var user = PrepareUser(info);
                 var createResult = await _userManager.CreateAsync(user);
 
                 if (createResult.Succeeded)
@@ -104,6 +101,21 @@ namespace ChatApp.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login");
+        }
+
+        /// <summary>
+        /// Prepare external user data
+        /// </summary>
+        private User PrepareUser(ExternalLoginInfo info)
+        {
+            var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+
+            return new User
+            {
+                UserName = email,
+                Email = email,
+                FullName = info.Principal.FindFirstValue(ClaimTypes.Name)
+            };
         }
     }
 }

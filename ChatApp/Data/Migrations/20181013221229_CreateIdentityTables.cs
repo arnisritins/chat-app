@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ChatApp.Data.Migrations
 {
-    public partial class CreateIentityTables : Migration
+    public partial class CreateIdentityTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -42,7 +42,8 @@ namespace ChatApp.Data.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    FullName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

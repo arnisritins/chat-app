@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ChatApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181009185912_CreateIentityTables")]
-    partial class CreateIentityTables
+    [Migration("20181013221229_CreateIdentityTables")]
+    partial class CreateIdentityTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -61,6 +61,8 @@ namespace ChatApp.Data.Migrations
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
+
+                    b.Property<string>("FullName");
 
                     b.Property<bool>("LockoutEnabled");
 
