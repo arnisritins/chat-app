@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ChatApp.Data.Entities
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h2>Chat</h2>
+<p>Welcome, @UserManager.GetUserName(User)</p>
+
+<hr />
+
+<form asp-controller="Account" asp-action="Logout" method="post">
+    <button type="submit">Log Out</button>
+</form>
