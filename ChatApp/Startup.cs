@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ChatApp.Data;
 using ChatApp.Data.Entities;
+using ChatApp.Hubs;
 
 namespace ChatApp
 {
@@ -50,8 +51,8 @@ namespace ChatApp
                 options.LoginPath = "/Account/Login";
             });
 
-            // Add MVC services
             services.AddMvc();
+            services.AddSignalR();
         }
 
         /// <summary>
@@ -72,6 +73,10 @@ namespace ChatApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ChatHub>("/chatHub");
+            });
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

@@ -7,7 +7,6 @@ namespace ChatApp.Controllers
         /// <summary>
         /// Error page
         /// </summary>
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Index()
         {
             return View("Error");

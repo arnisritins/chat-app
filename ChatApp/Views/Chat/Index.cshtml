@@ -1,7 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using ChatApp.Data.Entities
 
-@inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
 @{
@@ -9,10 +8,25 @@
 }
 
 <h2>Chat</h2>
-<p>Welcome, @UserManager.GetUserAsync(User).Result.FullName</p>
-
 <hr />
+
+<p>Welcome, @UserManager.GetUserAsync(User).Result.FullName</p>
 
 <form asp-controller="Account" asp-action="Logout" method="post">
     <button type="submit">Log Out</button>
 </form>
+
+<hr />
+<div id="messages"></div>
+<br />
+
+<form id="form" action="">
+    <input id="input" type="text" placeholder="Enter your message..." autocomplete="off" />
+    <button type="submit">Send</button>
+</form>
+
+@section Scripts
+{
+    <script src="~/lib/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/js/chat.js"></script>
+}
