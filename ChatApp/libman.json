@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "provider": "filesystem",
+      "library": "node_modules/bootstrap/dist/css/",
+      "destination": "wwwroot/lib/bootstrap",
+      "files": [
+        "bootstrap.min.css"
+      ]
+    },
+    {
+      "provider": "filesystem",
+      "library": "node_modules/bootstrap/dist/js/",
+      "destination": "wwwroot/lib/bootstrap/",
+      "files": [
+        "bootstrap.min.js"
+      ]
+    },
+    {
+      "provider": "filesystem",
+      "library": "node_modules/@aspnet/signalr/dist/browser/",
+      "destination": "wwwroot/lib/signalr",
+      "files": [
+        "signalr.min.js"
+      ]
+    }
+  ]
+}

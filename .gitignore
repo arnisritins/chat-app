@@ -35,3 +35,6 @@ msbuild.wrn
 
 # NPM packages
 node_modules
+
+# Client-side libraries
+*/wwwroot/lib
